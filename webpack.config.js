@@ -18,7 +18,8 @@ const jsLoaders = () => {
     const loaders = [{
         loader: 'babel-loader',
         options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-syntax-jsx']
         }
     }]
 
@@ -35,7 +36,8 @@ module.exports = {
     // entry: './index.js',
     entry: ['@babel/polyfill', './index.js'],
     output: {
-        filename: filename(''),
+        // filename: filename(''),
+        filename: filename('js'),
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
