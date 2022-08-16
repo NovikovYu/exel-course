@@ -18,6 +18,7 @@
     }
 
     .row-info {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,11 +29,49 @@
         border-top: none;
     }
 
+    .row-resize {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        // opacity: 0;
+        height: 4px;
+        background-color: transparent;
+
+        &:hover {
+            cursor: row-resize;
+            background-color: #3c74ff;
+        }
+
+        &:active {
+            opacity: 1;
+            cursor: row-resize;
+            background-color: #3c74ff;
+            z-index: 1000;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 1px;
+            width: 100vw;
+            bottom: auto;
+            top: 2px;
+            background-color: #3c74ff;
+            opacity: 0;
+        }
+    }
     .row-data {
         display: flex;
     }
 
     .column {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -43,6 +82,44 @@
         height: 100%;
         border-top: none;
         border-left: none;
+    }
+
+    .col-resize {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 4px;
+        background-color: transparent;
+
+        &:hover {
+            cursor: col-resize;
+            background-color: #3c74ff;
+        }
+
+        &:active {
+            opacity: 1;
+            cursor: col-resize;
+            background-color: #3c74ff;
+            z-index: 1000;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 1px;
+            height: 100vh;
+            left: 2px;
+            top: 0;
+            bottom: 0;
+            background-color: #3c74ff;
+            opacity: 0;
+        }
     }
 
     .cell {
@@ -56,7 +133,7 @@
         color: #111;
         white-space: nowrap;
         outline: none;
-        
+
 
         &.selected {
             border: none;
